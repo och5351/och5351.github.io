@@ -16,6 +16,7 @@ toc_label: "MapReduce 정리"
 # toc_icon: "sticky-note"
 ---
 
+<br><br>
 <a id="home1"></a>
 
 # 맵리듀스란?
