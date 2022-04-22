@@ -12,8 +12,9 @@ tags:
   - CDP
 toc: true
 toc_sticky: true
-toc_label: "MapReduce 정리"
-# toc_icon: "sticky-note"
+
+date: 2022-03-13
+last_modified_at: 2020-03-13
 ---
 
 <br><br>
