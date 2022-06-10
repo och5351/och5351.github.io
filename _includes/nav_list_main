@@ -47,7 +47,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Hive" %}
-                        <li><a href="/categories/Spark" class="">Hive ({{category[1].size}})</a></li>
+                        <li><a href="/categories/Hive" class="">Hive ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
