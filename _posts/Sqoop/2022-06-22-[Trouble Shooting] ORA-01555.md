@@ -12,8 +12,8 @@ tags:
 toc: true
 toc_sticky: true
 
-date: 2022-06-21
-last_modified_at: 2020-06-21
+date: 2022-06-22
+last_modified_at: 2020-06-22
 ---
 
 <br>
@@ -56,8 +56,6 @@ Caused by: java.sql.SQLException: ORA-01555: snapshot too old: rollback segment 
 
 # 해결 방법
 
-> <a href='https://stackoverflow.com/questions/32143202/sqoop-from-oracle-snapshot-too-old'>https://stackoverflow.com/questions/32143202/sqoop-from-oracle-snapshot-too-old</a>
-
 해결 방법은 2가지 정도로 생각한다.
 
 1. 위의 Transaction 이 일어날 시간을 피한다.
@@ -66,6 +64,9 @@ Caused by: java.sql.SQLException: ORA-01555: snapshot too old: rollback segment 
 나는 --num-mappers=1 로 지정하여 실험적으로 당기고 있었기에 시간이 너무 올래 걸렸고, 그 시간 동안 테이블에 어떤 Transaction을 발생시키는 요인이 있었을 듯 하다.
 그래서 map 갯수를 올리고 --split-by 옵션을 지정하여 새로 작업을 진행 시켰다. 그리고 Transaction이 일어나지 않는 시간에 실행을 시켰다.
 
+> stackoverflow : <a href='https://stackoverflow.com/questions/32143202/sqoop-from-oracle-snapshot-too-old'>https://stackoverflow.com/questions/32143202/sqoop-from-oracle-snapshot-too-old</a>
+```
 Usage of --num-mappers=10 (i.e. increased parallelism) was sufficient enough to overcome the problem in this instance without impacting the source too much.
 
 Additionally, adding the --direct parameter will cause Sqoop to use an Oracle specific connector which will speed things up further, and will be added to my solution as soon as I convince the DBA on that database to open up the necessary privileges. Direct also supports the option -Doraoop.import.consistent.read={true|false} which seems to mirror the Oracle export utility's CONSISTENT parameter in function (note, defaults to false), in the sense that the undo tablespace would not be used to try to preserve consistency, eliminating the need to race to import before the Undo tablespace fills up altogether.
+```
