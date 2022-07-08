@@ -76,12 +76,14 @@ ls /user/hive/warehouse/records/
 LOAD DATA 구문의 OVERWRITE 키워드는 해당 테이블의 디렉터리에 존재하는 모든 파일을 삭제하는 기능이다. OVERWRITE를 생략하면 새로운 파일은 단순히 그 테이블의 디렉터리에 추가된다. 이 때 동일한 이름의 파일이 있으면 이전 파일을 덮어쓴다.
 
 3. 하이브 쿼리 실행
+
 ```SQL
 SELECT year, MAX(temperature)
 FROM records
 WHERE temperature != 9999 AND quality IN (0, 1, 4, 5, 9)
 GROUP BY year;
 ```
+
 하이브가 이 쿼리를 사용자 대신 맵리듀스 잡으로 변환하여 실행하고 그 결과를 콘솔에 출력한다. 하이브가 지원하는 SQL 구조와 사용자가 쿼리를 통해 요청할 수 있는 데이터의 포맷과 같은 일부 제약사항을 보여주지만 원시 데이터를 대상으로 SQL 쿼리를 실행할 수 있게 해주는 능력이 있다.
 
 
