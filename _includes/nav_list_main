@@ -23,6 +23,13 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+             <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Kafka" %}
+                        <li><a href="/categories/Kafka" class="">Kafka ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Sqoop" %}
