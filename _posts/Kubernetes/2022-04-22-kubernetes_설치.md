@@ -16,11 +16,6 @@ date: 2022-03-25
 last_modified_at: 2022-04-22
 ---
 
-<br><br>
-
-<a id="home1"></a>
-
-# 쿠버네티스 설치
 
 <br>
 
@@ -28,20 +23,11 @@ kubeadm이란, kubernetes에서 제공하는 기본적인 도구이며, kubernet
 
 <br><br>
 
-## 목차
-
-- [kubeadm을 활용한 설치](#1)
-
-<br><br>
-
-<br><br>
-<a id="1"></a>
-
-## 1. kubeadm을 활용한 설치
+# 1. kubeadm을 활용한 설치
 
 <br>
 
-1. Swap을 끊다
+### 1. Swap 비활성화
 
 ```bash
  # 사용하지 않는 이유에 대한 글은 아래의 링크를 통해 확인 가능
@@ -55,7 +41,7 @@ kubeadm이란, kubernetes에서 제공하는 기본적인 도구이며, kubernet
 
 <br>
 
-2. yum update 및 도커 설치
+### 2. yum update 및 도커 설치
 
 ```bash
  $ > yum update -y
@@ -83,7 +69,7 @@ kubeadm이란, kubernetes에서 제공하는 기본적인 도구이며, kubernet
 
 <br>
 
-2. -1 Docker 데몬 드라이버 교체
+### 2-1. Docker 데몬 드라이버 교체
 
 ```bash
 cat > /etc/docker/daemon.json <<EOF
@@ -103,7 +89,7 @@ EOF
 
 <br>
 
-3. SELinux 설정을 permissive 모드로 변경
+### 3. SELinux 설정을 permissive 모드로 변경
 
 ```bash
  $ > setenforce 0
@@ -113,7 +99,7 @@ EOF
 
 <br>
 
-4. iptable 설정
+### 4. iptable 설정
 
 ```bash
 $ > cat <<EOF >  /etc/sysctl.d/k8s.conf
@@ -129,7 +115,7 @@ $ sysctl --system
 
 <br>
 
-5. firewalld 비활성화
+### 5. firewalld 비활성화
 
 ```bash
 $ > systemctl stop firewalld
@@ -137,7 +123,7 @@ $ > systemctl stop firewalld
 $ > systemctl disable firewalld
 ```
 
-6. kubernetes yum repository 설정
+### 6. kubernetes yum repository 설정
 
 ```bash
 $ > cat <<EOF > /etc/yum.repos.d/kubernetes.repo
@@ -154,7 +140,7 @@ EOF
 
 <br>
 
-7. kubernetes 설치
+### 7. kubernetes 설치
 
 ```bash
  $ > sudo yum install -y kubeadm-1.21.5-0.x86_64 kubectl-1.21.5-0.x86_64 kubelet-1.21.5-0.x86_64 --disableexcludes=kubernetes
@@ -164,13 +150,13 @@ EOF
 
 <br>
 
-8. kubeadm 초기화
+### 8. kubeadm 초기화
 
 ```bash
  $ > sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address='private IP'
 ```
 
-9. Kubernetes 클러스터에 로컬로 액세스 할 수 있도록, 사용할 OS 유저에 설정을 추가
+### 9. Kubernetes 클러스터에 로컬로 액세스 할 수 있도록, 사용할 OS 유저에 설정을 추가
 
 ```bash
 mkdir -p $HOME/.kube
@@ -180,7 +166,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 <br>
 
-10. network 정책 적용
+### 10. network 정책 적용
 
 ```bash
  $ > kubectl apply -f "calico.yaml"
@@ -190,7 +176,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 <br>
 
-11. worker node 조인
+### 11. worker node 조인
 
 ```bash
  $ > sudo kubeadm join (마스터 노드 접속 가능한 IP):6443 --token (TOKEN) --discovery-token-ca-cert-hash (DISCOVERY_HASH)
@@ -198,7 +184,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 <br>
 
-12. token을 잊었을시
+### 12. token을 잊었을시
 
 ```bash
  $ > kubeadm token list
@@ -207,7 +193,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 <br>
 
-13. token 만료시(24시간)
+### 13. token 만료시(24시간)
 
 ```bash
  $ > kubeadm token create
@@ -215,7 +201,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 <br>
 
-14. Role 설정
+### 14. Role 설정
 
 ```bash
  $ > kubectl get nodes
@@ -226,13 +212,13 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 <br>
 
-15. ingress 등록
+### 15. ingress 등록
 
 <a href="https://github.com/och5351/cluster/tree/main/master_yaml/ingress-keepalived">Ingress</a>
 
 <br>
 
-16. jenkins master pod 생성
+### 16. jenkins master pod 생성
 
 ```bash
  $ > kubectl create namespace ns-jenkins
