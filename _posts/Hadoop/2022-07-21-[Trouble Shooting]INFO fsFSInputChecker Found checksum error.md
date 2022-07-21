@@ -32,7 +32,7 @@ INFO fs.FSInputChecker: Found checksum error:
 
 <br>
 
-해당 에러는 HDFS put을 할 때 발생하는 체크서 에러 이다.
+해당 에러는 HDFS put을 할 때 발생하는 체크섬 에러 이다.
 
 <br>
 
