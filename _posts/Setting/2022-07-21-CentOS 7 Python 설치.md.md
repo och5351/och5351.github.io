@@ -1,5 +1,5 @@
 ---
-title: "CentOS 7 Python 설치.md"
+title: "CentOS 7 Python 설치"
 toc: true
 # header:
   # image: /assets/images/nifi/nifi_logo.svg
@@ -15,14 +15,9 @@ toc: true
 toc_sticky: true
 
 date: 2022-07-21
-last_modified_at: 2022-07-21
+last_modified_at: 2022-08-16
 
 ---
-
-
-<br>
-
-# Python 설치
 
 <br>
 
@@ -83,7 +78,7 @@ find / -name Setup
 ```bash
 vi `Setup 경로`
 
-# _socket soketmodule.c 
+# _socket soketmodule.c
 
 
 #SSL=/usr/local/ssl
