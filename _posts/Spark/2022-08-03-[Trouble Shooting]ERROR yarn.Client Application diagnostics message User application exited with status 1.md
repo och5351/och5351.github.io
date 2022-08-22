@@ -1,5 +1,5 @@
 ---
-title: "[Trouble Shooting] INFO fs.FSInputChecker: Found checksum error:"
+title: "[Trouble Shooting] ERROR yarn.Client Application diagnostics message User application exited with status 1"
 toc: true
 # header:
 #   image: /assets/images/nifi/nifi_logo.svg
@@ -22,7 +22,7 @@ last_modified_at: 2022-08-03
 
 <br>
 
-``` sh
+```sh
 > spark-submit --master yarn --deploy-mode cluster --num-executors 4 *.py
 
 ...
@@ -35,8 +35,6 @@ ERROR yarn.Client: Application diagnostics message: User application exited with
 # Solution
 
 <br>
-
-
 
 해당 에러가 발생했을 시는 파이썬 코드를 한 번 더 확인해본다.
 
