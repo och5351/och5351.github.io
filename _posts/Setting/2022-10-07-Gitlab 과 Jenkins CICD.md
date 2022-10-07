@@ -1,5 +1,5 @@
 ---
-title: "Spark 독립실행형 클러스터 배포"
+title: "Gitlab 과 Jenkins CI/CD"
 toc: true
 # header:
   # image: /assets/images/nifi/nifi_logo.svg
@@ -9,102 +9,70 @@ categories:
   - Setting
 tags:
   - Setting
-  - Spark
+  - Jenkins
 toc: true
 toc_sticky: true
 
-date: 2022-08-16
-last_modified_at: 2022-08-16
+date: 2022-10-07
+last_modified_at: 2022-10-07
 
 ---
 
-<br>
-
-# 1. 클러스터 토폴로지 계획 및 여러 시스템 스파크 설치
-
-<br>
-
-- 스파크 마스터
-- 스파트 워커 1,2,3
-
 <br><br>
 
-# 2. 네트워크 구성
+1. Jenkins Plugin 설정
 
 <br>
 
-hosts 파일 활용
-
-```
-vi /etc/hosts
-
-000.000.000 sparkworker1
-...
-```
-
-이 후 ping 으로 확인
-
-<br><br>
-
-# 3. 각 호스트에 spark-default.conf 파일 생성/편집
+    1-1. Dashboard -> Jenkins 관리 -> plugin 관리
+    1-2. Git, GitLab pluging 설치
 
 <br>
 
-스파크 마스터, 워커 호스트에서 다음 명령 실행
-
-```
-cd $SPARK_HOME/conf
-sudo cp spark-defaults.conf.template spark-default.conf
-sudo sed -i "\$aspark.master\tspark://sparkmaster:7077" spark-defaults.conf
-```
-
-<br><br>
-
-# 4. 각 호스트에서 spark-env.sh 파일 생성/편집
+2. Jenkins Credentials 설정
 
 <br>
 
-```
-cd $SPARK_HOME/conf
-sudo cp spark-env.sh.template spark-env.conf
-sudo sed -i "\$aSPARK_MASTER_IP=sparkmaster" spark-env.sh
-```
-
-<br><br>
-
-# 5. 스파크 마스터/워커 시작하기
-
-<br>
-
-스파크 마스터 호스트에서 다음 명령 실행
-
-```sh
-sudo $SPARK_HOME/sbin/start-master.sh
-```
-
-스파크 워커에서 다음 명령 실행
-
-```sh
-sudo $SPARK_HOME/sbin/start-slave.sh spark://sparkmaster:7077
-```
-
-http://sparkslaveN:8081/ 에서 스파크 워커 UI를 확인한다.
-
-<br><br>
-
-# 6. 다중 노드 클러스터 테스트
+    2.1. Dashboard -> Jenkins 관리 -> Manage Credentials 
+    2.2. Stores scoped to Jenkins 에 Domains (global) 클릭
+    2.3. Add Credentials 클릭
+    2.4. Gitlab 유저 정보 입력
+    
+    
+     * Username : gitalb 의 사용자 id (필수)
+     * Password : gitlab의 사용자 password (필수)
+     * ID : Credentials를 구분하는 ID (필수)
+     * Description : 이 Credentials의 대한 부연설명 (선택)
 
 <br>
 
-Pi 추정 예제
+3. Item 생성 및 Item 구성 설정
 
-```sh
-spark-submit --class org.apache.spark.examples.SparkPi \
---master spark://sparkmaster:7077 \
---driver-memory 512m \
---executor-memory 512m \
---executor-cores 1\
-$SPARK_HOME/examples/jars/spark-eamples*.jar 10000
-```
+<br>
 
-<br><br>
+    3.1. Dashboard -> 새로운 Item
+    3.2. 소스코드관리 -> Git 선택
+    3.3. Repository URL -> gitlab url
+    3.4. Credentials 설정 [2번에 작성한 Credentials]
+    3.5. Jenkins build가 돌아갈 gitlab branch 지정
+    3.6. 빌드 유발 지정 (Build when a change is pushged to Gitlab. Gitlab.webhook.URL;[jenkins url]) 선택
+    3.7. Accepted Merge Request Events 와 Closed Request Events 를 체크
+    3.8. Secret token 목록에서 Generate 로 토큰 생성
+
+<br>
+
+4. Gitlab 설정
+
+<br>
+
+    4.1. Admin 계정 접속
+    4.2. 좌측 상단 Menu -> Admin
+    4.3. 좌측 Dashboard Setting -> Network
+    4.4. Outbound request 에 whilte list 추가(Allow requests 부분을 체크하고 본인이 접속하는 url을 입력) 후 Save Change
+    4.5. Setting -> Webhooks
+    4.6. 아래와 같이
+
+     * URL : Jenkins의 URL로 Jenkins 설정 중 빌드 유발 부분에 나오는 Jenkins url 기입
+     * Secret token : 빌드 유발 부분에서 Generate로 생성한 Secret token 기입
+     * Trigger : 이벤트를 발생시키는 조건
+
