@@ -272,8 +272,12 @@ public class App {
 
 컴파일은 lib 에 들어있는 모든 jar를 포함시켜줘야 한다.
 
-```
+```bash
 javac -d ./target/classes/ -cp ./lib/kafka-clients-2.6.0.jar:./lib/lz4-java-1.7.1.jar:./lib/slf4j-api-1.7.30.jar:./lib/snappy-java-1.1.7.3.jar:./lib/zstd-jni-1.4.4-7.jar:./target/classes ./src/main/java/com/example/app/App.java
+
+# or 
+
+javac -d ./target/classes/ -cp ./lib/*:./target/classes ./src/main/java/com/example/app/App.java
 ```
 
 <br><br>
