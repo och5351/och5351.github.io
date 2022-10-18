@@ -218,7 +218,9 @@ java com.example.app.App 5 7
 
 <br>
 
-파일을 다운 후 lib 폴더에 넣어준다.
+파일을 다운 후 lib 폴더에 넣어준다. https://jar-download.com/
+
+
 
 ```
 mkdir ./lib
@@ -226,9 +228,52 @@ mkdir ./lib
 
 
 ``` java
+// App.java
+package com.example.app;
+
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+
+import java.util.Arrays;
+import java.util.Properties;
+
+public class App {
+    public static void main(String[] args) {
+
+        String topic_name = "topic";
+        String consumer_group = "topic_group";
+
+        Properties configs = new Properties();
+        configs.put("bootstrap.servers", "IP:PORT"); // kafka server host 및 port
+        configs.put("session.timeout.ms", "10000"); // session 설정
+        configs.put("group.id", consumer_group);   // consumer 설정
+        // configs.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");    // key deserializer
+        // configs.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");  // value deserializer
+
+        KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(configs);    // consumer 생성
+        consumer.subscribe(Arrays.asList(topic_name)); // topic 설정
+
+        while (true) {
+            ConsumerRecords<String, String> records = consumer.poll(500);
+            for (ConsumerRecord<String, String> record : records) {
+                String input = record.topic();
+                if (consumer_group.equals(input)) {
+                    System.out.println(record.value());
+                } else {
+                    throw new IllegalStateException("get message on topic " + record.topic());
+                }
+            }
+        }
+    }
+}
+
+```
+
+컴파일은 lib 에 들어있는 모든 jar를 포함시켜줘야 한다.
+
+```
+javac -d ./target/classes/ -cp ./lib/kafka-clients-2.6.0.jar:./lib/lz4-java-1.7.1.jar:./lib/slf4j-api-1.7.30.jar:./lib/snappy-java-1.1.7.3.jar:./lib/zstd-jni-1.4.4-7.jar:./target/classes ./src/main/java/com/example/app/App.java
 ```
 
 <br><br>
@@ -259,7 +304,7 @@ added manifest
 <br>
 
 ```
-java -cp app.jar com.example.app.App 10 2
+java -cp app.jar com.example.app.App
 ```
 
 <br><br>
@@ -272,12 +317,18 @@ resources 폴더에 MANIFEST.TXT 파일을 만들고 추가
 
 ```
 Main-Class: com.example.app.App
+
+```
+
+```
+cd ../../../target/classes
+jar cfvm ../app.jar ../../src/main/resources/MANIFEST.TXT .
 ```
 
 target 으로 이동해 앱 실행
 
 ```
-java -jar app.jar 20 30
+java -jar app.jar
 ```
 
 <br><br>
