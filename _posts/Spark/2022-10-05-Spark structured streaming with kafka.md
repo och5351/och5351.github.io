@@ -1,5 +1,5 @@
 ---
-title: "Spark structured streaming + kafka"
+title: "Spark structured streaming with kafka"
 toc: true
 # header:
 #   image: /assets/images/spark/spark_logo.svg
