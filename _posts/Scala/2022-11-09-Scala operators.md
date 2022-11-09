@@ -93,14 +93,14 @@ last_modified_at: 2022-11-09
       <td>x &lt y</td>
     </tr>
     <tr>
-      <td>&gt=</td>
+      <td>&gt =</td>
       <td>Greater than or equal to</td>
-      <td>x &gt= y</td>
+      <td>x &g t= y</td>
     </tr>
     <tr>
-      <td>&lt=</td>
+      <td>&lt =</td>
       <td>Less than or equal to</td>
-      <td>x &lt= y</td>
+      <td>x &lt = y</td>
     </tr>
     <tr>
       <td>&&</td>
