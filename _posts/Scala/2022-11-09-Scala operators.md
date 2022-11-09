@@ -83,9 +83,9 @@ last_modified_at: 2022-11-09
       <td>x != y</td>
     </tr>
     <tr>
-      <td>&gt</td>
+      <td>></td>
       <td>Greater than</td>
-      <td>x &gt y</td>
+      <td>x > y</td>
     </tr>
     <tr>
       <td> &lt </td>
