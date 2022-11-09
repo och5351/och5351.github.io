@@ -157,6 +157,56 @@ last_modified_at: 2022-11-09
       <td>Simple assignment</td>
       <td>x = 6</td>
     </tr>
+    <tr>
+      <td>+=</td>
+      <td>Add and Assignment</td>
+      <td>x += 4</td>
+    </tr>
+    <tr>
+      <td>-=</td>
+      <td>Subtract and Assignment</td>
+      <td>x -= 4</td>
+    </tr>
+    <tr>
+      <td>*=</td>
+      <td>Multiply and Assignment</td>
+      <td>x *= 4</td>
+    </tr>
+    <tr>
+      <td>/=</td>
+      <td>Divide and Assignment</td>
+      <td>x /= 4</td>
+    </tr>
+    <tr>
+      <td>%=</td>
+      <td>Modulus and Assignment</td>
+      <td>x %= 4</td>
+    </tr>
+    <tr>
+      <td>&=</td>
+      <td>Bitwise AND and Assignment</td>
+      <td>x &= 4</td>
+    </tr>
+    <tr>
+      <td>|=</td>
+      <td>Bitwise OR and Assignment</td>
+      <td>x += 4</td>
+    </tr>
+    <tr>
+      <td>^=</td>
+      <td>Bitwise XOR and Assignment</td>
+      <td>x ^= 4</td>
+    </tr>
+    <tr>
+      <td>&lt&lt =</td>
+      <td>Left-shift and Assignment</td>
+      <td>x &lt&lt = 4</td>
+    </tr>
+    <tr>
+      <td>&gt&gt =</td>
+      <td>Right-shift and Assignment</td>
+      <td>x &gt&gt = 4</td>
+    </tr>
   </tbody>
 </table>
 
