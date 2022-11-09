@@ -161,6 +161,7 @@ String.toLowerCase()
 String.charAt(index)
 String.concat(anotherString)
 String.trim
-String.equals(anotherString)
-String.eq(anotherString)
+String.equals(anotherString) // 문자열 까지만 비교
+String.eq(anotherString) // point 까지 비교
+String.split("separator")
 ```
