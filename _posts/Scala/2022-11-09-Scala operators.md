@@ -83,24 +83,24 @@ last_modified_at: 2022-11-09
       <td>x != y</td>
     </tr>
     <tr>
-      <td>></td>
+      <td>&gt;</td>
       <td>Greater than</td>
-      <td>x > y</td>
+      <td>x &gt; y</td>
     </tr>
     <tr>
-      <td> &lt </td>
+      <td> &lt; </td>
       <td>Less than</td>
-      <td>x &lt y</td>
+      <td>x &lt; y</td>
     </tr>
     <tr>
-      <td>&gt =</td>
+      <td>&gt;=</td>
       <td>Greater than or equal to</td>
       <td>x &g t= y</td>
     </tr>
     <tr>
-      <td>&lt =</td>
+      <td>&lt;=</td>
       <td>Less than or equal to</td>
-      <td>x &lt = y</td>
+      <td>x &lt;= y</td>
     </tr>
     <tr>
       <td>&&</td>
@@ -115,7 +115,7 @@ last_modified_at: 2022-11-09
     <tr>
       <td>!</td>
       <td>Return the opposite of the evaluated result. Return True if false and False if true</td>
-      <td>!(x &gt 100 || x &lt 50)</td>
+      <td>!(x &gt; 100 || x &lt; 50)</td>
     </tr>
     <tr>
       <td>&</td>
@@ -138,19 +138,19 @@ last_modified_at: 2022-11-09
       <td>~x</td>
     </tr>
     <tr>
-      <td>&lt&lt</td>
+      <td>&lt;&lt;</td>
       <td>Binary Left-Shift</td>
-      <td>x &lt&lt 2</td>
+      <td>x &lt;&lt; 2</td>
     </tr>
     <tr>
-      <td>&gt&gt</td>
+      <td>&gt;&gt;</td>
       <td>Binary Right-Shift</td>
-      <td>x &gt&gt 2</td>
+      <td>x &gt;&gt; 2</td>
     </tr>
     <tr>
-      <td>&gt&gt&gt</td>
+      <td>&gt;&gt;&gt;</td>
       <td>Shift-Right Zero-Fill</td>
-      <td>x &gt&gt&gt 2</td>
+      <td>x &gt;&gt;&gt; 2</td>
     </tr>
     <tr>
       <td>=</td>
@@ -198,14 +198,14 @@ last_modified_at: 2022-11-09
       <td>x ^= 4</td>
     </tr>
     <tr>
-      <td>&lt&lt =</td>
+      <td>&lt;&lt; =</td>
       <td>Left-shift and Assignment</td>
-      <td>x &lt&lt = 4</td>
+      <td>x &lt;&lt; = 4</td>
     </tr>
     <tr>
-      <td>&gt&gt =</td>
+      <td>&gt;&gt;=</td>
       <td>Right-shift and Assignment</td>
-      <td>x &gt&gt = 4</td>
+      <td>x &gt;&gt;= 4</td>
     </tr>
   </tbody>
 </table>
