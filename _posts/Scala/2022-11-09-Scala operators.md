@@ -88,19 +88,19 @@ last_modified_at: 2022-11-09
       <td>x &gt; y</td>
     </tr>
     <tr>
-      <td> &lt; </td>
+      <td>&lt;</td>
       <td>Less than</td>
       <td>x &lt; y</td>
     </tr>
     <tr>
-      <td>&gt;=</td>
+      <td>&ge;</td>
       <td>Greater than or equal to</td>
-      <td>x &g t= y</td>
+      <td>x &ge; y</td>
     </tr>
     <tr>
-      <td>&lt;=</td>
+      <td>&le;</td>
       <td>Less than or equal to</td>
-      <td>x &lt;= y</td>
+      <td>x &le; y</td>
     </tr>
     <tr>
       <td>&&</td>
@@ -198,14 +198,14 @@ last_modified_at: 2022-11-09
       <td>x ^= 4</td>
     </tr>
     <tr>
-      <td>&lt;&lt; =</td>
+      <td>&lt;&le;</td>
       <td>Left-shift and Assignment</td>
-      <td>x &lt;&lt; = 4</td>
+      <td>x &lt;&le; 4</td>
     </tr>
     <tr>
-      <td>&gt;&gt;=</td>
+      <td>&gt;&ge;</td>
       <td>Right-shift and Assignment</td>
-      <td>x &gt;&gt;= 4</td>
+      <td>x &gt;&ge; 4</td>
     </tr>
   </tbody>
 </table>
