@@ -212,3 +212,143 @@ last_modified_at: 2022-11-09
 
 
 <br><br>
+
+# 3. 예제
+
+<br>
+
+```scala
+import scala.math._
+sqrt(2)
+
+val myHello = "hello"
+// myHello(4) // sugar coating
+myHello.apply(4)
+
+// 스칼라의 모든 것은 객체이다.
+// 심지어 연산 기호 조차도 객체이다.
+1.+(5) // 1 + 1 은 1.+(5) 의 sugar coating 이다.
+// res172: Int = 6
+
+val one: Int= 1
+one.to(10)
+
+// one: Int = 1
+// res174: scala.collection.immutable.Range.Inclusive = Range(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+val x : BigInt = 123456789
+x * x * x * x
+// x.*(x).*(x).*(x)
+
+// x: scala.math.BigInt = 123456789
+// res176: scala.math.BigInt = 232305722798259244150093798251441
+
+5 / 2
+5.0 / 2.0
+
+// res182: Int = 2
+// res184: Double = 2.5
+
+val a = 12
+val b = 5
+
+~a
+a & b
+a | b
+a ^ b
+
+// a: Int = 12
+// b: Int = 5
+// res192: Int = -13
+// res193: Int = 4
+// res194: Int = 13
+// res195: Int = 9
+```
+
+<br><br>
+
+# 4. 스칼라 연산자 순위
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan=1>Category</th>
+      <th colspan=1>Operator</th>
+      <th colspan=1>Associativity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Postfix</td>
+      <td>() []</td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Unary</td>
+      <td>! ~</td>
+      <td>Right to Left</td>
+    </tr>
+    <tr>
+      <td>Multiplicative</td>
+      <td>* / %</td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Additive</td>
+      <td>+-</td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Shift</td>
+      <td>&gt;&gt; &gt;&gt;&gt; &lt;&lt;</td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Relational</td>
+      <td>&gt; &ge; &lt; &le;</td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Equality</td>
+      <td>== !=</td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Bitwise AND</td>
+      <td> & </td>
+      <td> Left to Right </td>
+    </tr>
+    <tr>
+      <td>Bitwise XOR</td>
+      <td>^</td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Bitwise OR</td>
+      <td>|</td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Locgical AND</td>
+      <td> && </td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Logical OR</td>
+      <td> || </td>
+      <td>Left to Right</td>
+    </tr>
+    <tr>
+      <td>Assignment</td>
+      <td>= += -= *= /= %= &gt;&ge; &lt;&le; &= ^= |=</td>
+      <td>Right to Left</td>
+    </tr>
+    <tr>
+      <td>Comma</td>
+      <td>,</td>
+      <td>Left to Right</td>
+    </tr>
+  </tbody>
+</table>
