@@ -142,6 +142,13 @@
                 {% endfor %}
             </ul>        
         <span class="nav__sub-title">기타</span>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "Algorithm" %}
+                    <li><a href="/categories/Scala" class="">Scala ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Algorithm" %}
