@@ -149,6 +149,13 @@
                 {% endif %}
             {% endfor %}
         </ul>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "Java" %}
+                    <li><a href="/categories/Java" class="">Java ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Algorithm" %}
