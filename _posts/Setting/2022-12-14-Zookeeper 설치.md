@@ -10,9 +10,7 @@ categories:
 tags:
   - Setting
   - Zookeeper
-toc: true
 toc_sticky: true
-
 date: 2022-12-14
 last_modified_at: 2022-12-14
 
