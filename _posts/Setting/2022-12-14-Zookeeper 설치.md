@@ -9,6 +9,7 @@ categories:
   - Setting
 tags:
   - Setting
+  - Zookeeper
 toc_sticky: true
 date: 2022-12-14
 last_modified_at: 2022-12-14
@@ -77,10 +78,6 @@ tar xvfzp apache-zookeeper-3.6.3-bin.tar.gz
 ```bash
 ln -s apache-zookeeper-3.6.3-bin zookeeper
 ```
-
-<br><br>
-
-
 
 <br><br>
 
