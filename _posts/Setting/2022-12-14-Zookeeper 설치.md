@@ -134,7 +134,7 @@ cd /home/zookeeper/zookeeper/bin
 
 <br>
 
-```
+```bash
 ./zookeeper/bin/zkServer.sh status
 ```
 
@@ -144,7 +144,7 @@ cd /home/zookeeper/zookeeper/bin
 
 <br>
 
-```
+```bash
 ./zkServer.sh stop
 ```
 
