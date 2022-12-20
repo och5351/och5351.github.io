@@ -29,6 +29,4 @@ println(scala.util.Properties.versionString)
 // version 2.11.12
 ```
 
-sudo chage -E '2999-12-31' haetlusr
-
 <br><br>
