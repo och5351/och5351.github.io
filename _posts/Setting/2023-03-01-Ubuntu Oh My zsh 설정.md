@@ -27,11 +27,44 @@ sudo apt-get install zsh
 
 # 터미널 기본 셸 변경
 sudo chsh -s $(which zsh)
+
+# 세션 종료
+exit
+
+# 재로그인
 ```
 
 <br><br>
 
-# 2. oh-my-zsh 설치
+# 2. .zshrc 파일 만들기
+
+아래와 같은 문구가 뜨면 0을 선택하여 `.zshrc` 파일을 만들어 준다.
+
+```bash
+This is the Z Shell configuration function for new users,
+zsh-newuser-install.
+You are seeing this message because you have no zsh startup files
+(the files .zshenv, .zprofile, .zshrc, .zlogin in the directory
+~).  This function can help you with a few settings that should
+make your use of the shell easier.
+
+You can:
+
+(q)  Quit and do nothing.  The function will be run again next time.
+
+(0)  Exit, creating the file ~/.zshrc containing just a comment.
+     That will prevent this function being run again.
+
+(1)  Continue to the main menu.
+
+(2)  Populate your ~/.zshrc with the configuration recommended
+     by the system administrator and exit (you will need to edit
+     the file by hand, if so desired).
+
+--- Type one of the keys in parentheses ---
+```
+
+# 3. oh-my-zsh 설치
 
 <br>
 
@@ -46,7 +79,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 <br><br>
 
-# 3. powerlevel10k 적용
+# 4. powerlevel10k 적용
 
 <br><br>
 
@@ -57,7 +90,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 <br>
 
-# 4. zsh 설정파일 수정
+# 5. zsh 설정파일 수정
 
 <br>
 
@@ -77,7 +110,7 @@ source .zshrc
 
 <br><br>
 
-# 5. 설정
+# 6. 설정
 
 <br>
 
