@@ -26,7 +26,7 @@ last_modified_at: 2023-03-01
 sudo apt-get install zsh
 
 # 터미널 기본 셸 변경
-sudo xhsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 ```
 
 <br><br>
