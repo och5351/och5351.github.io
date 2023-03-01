@@ -54,6 +54,15 @@ export PATH=$PATH:$JAVA_HOME/bin
 export CLASSPATH=$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar
 
 source ~/.bashrc
+
+# 우분투의 경우
+
+vi ~/.bashrc # vi ~/.zshrc
+
+export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+export PATH=$PATH:$JAVA_HOME/bin
+
+source ~/.bashrc # source ~/.zshrc
 ```
 
 <br><br>
