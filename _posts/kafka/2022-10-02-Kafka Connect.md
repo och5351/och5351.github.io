@@ -13,7 +13,7 @@ toc: true
 toc_sticky: true
 
 date: 2022-10-02
-last_modified_at: 2022-10-02
+last_modified_at: 2023-03-06
 ---
 
 <br><br>
@@ -53,3 +53,9 @@ Kafka Connect 에서는 카프카에 데이터를 넣는 프로듀서 쪽 커넥
 카프카 클러스터와 카프카 커넥터가 필요다.
 
 Kafka Connect는 카프카 클러스터의 브로커와 함께 설치해 실행한다.
+
+> <a href="https://och5351.github.io/setting/Zookeeper-%EC%84%A4%EC%B9%98/">Zookeeper 설치</a>
+
+<br>
+
+> <a href="https://och5351.github.io/setting/kafka-%EC%84%A4%EC%B9%98/">kafka 설치</a>
